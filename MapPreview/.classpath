@@ -5,5 +5,7 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry kind="lib" path="C:/Program Files/Amazon Web Services Android-1.6.1/aws-android-sdk-1.6.1/lib/aws-android-sdk-1.6.1-ddb-mapper-debug.jar"/>
+	<classpathentry kind="lib" path="/S3_SimpleDB_SNS_SQS_Demo/libs/aws-android-sdk-1.6.1-debug.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
