@@ -2,6 +2,7 @@ package com.entity;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Event {
 	/*DATANAME follows attribute names EXACTLY
@@ -56,6 +57,18 @@ public class Event {
 	public void setAttendees(ArrayList<User> attendees) {
 		this.attendees = attendees;
 	}
-	
+	public void addAttendee(User user){
+		this.attendees.add(user);
+	}
+	public void removeAttendee(User user){
+		String wantedUsername = user.getUsername();
+		Iterator<User> attendeeIter = attendees.iterator();
+		while (attendeeIter.hasNext()){
+			User check = attendeeIter.next();
+			if (check.getUsername().equalsIgnoreCase(wantedUsername)){
+				attendeeIter.remove();
+			}
+		}
+	}
 	
 }
