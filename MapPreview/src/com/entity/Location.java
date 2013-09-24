@@ -1,11 +1,20 @@
 package com.entity;
 
 public class Location {
-	private int locationID;
+	/*
+	 * locationName
+	 * latitude
+	 * longitude
+	 */
 	private String locationName;
-
-	public Location(int locationID) {
-		this.locationID = locationID;
+	private double latitude;
+	private double longitude;
+		
+	public Location(String locationName, double latitude, double longitude) {
+		super();
+		this.locationName = locationName;
+		this.latitude = latitude;
+		this.longitude = longitude;
 	}
 
 	public String getLocationName() {
@@ -16,11 +25,19 @@ public class Location {
 		this.locationName = locationName;
 	}
 
-	public int getLocationID() {
-		return locationID;
+	public double getLatitude() {
+		return latitude;
 	}
 
-	public void setLocationID(int locationID) {
-		this.locationID = locationID;
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
 	}
 }

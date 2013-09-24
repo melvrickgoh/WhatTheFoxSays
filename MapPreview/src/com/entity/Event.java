@@ -4,11 +4,28 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 
 public class Event {
+	/*DATANAME follows attribute names EXACTLY
+	 * eventName
+	 * startTime
+	 * endTime
+	 * attendees
+	 * location
+	 */
 	private String eventName;
-	private Location location;
 	private Timestamp startTime;
 	private Timestamp endTime;
 	private ArrayList<User> attendees;
+	private Location location;
+	
+	public Event(String eventName, Timestamp startTime, Timestamp endTime,
+			ArrayList<User> attendees, Location location) {
+		super();
+		this.eventName = eventName;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.attendees = attendees;
+		this.location = location;
+	}
 	public String getEventName() {
 		return eventName;
 	}

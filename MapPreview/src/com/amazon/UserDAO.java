@@ -9,9 +9,11 @@ import com.entity.User;
 
 public class UserDAO {
 	private SimpleDB sdb;
+	private LocationDAO lDAO;
 	
-	public UserDAO(){
+	public UserDAO(LocationDAO lDAO){
 		sdb = new SimpleDB();
+		this.lDAO = lDAO;
 	}
 	
 	public boolean checkUserDomainExists(){
@@ -38,9 +40,10 @@ public class UserDAO {
 		String userName = userAttributes.get("username");
 		int level = Integer.parseInt(userAttributes.get("level"));
 		int currentPoints = Integer.parseInt((userAttributes.get("currentPoints")));
-		int locationID = Integer.parseInt(userAttributes.get("locationID"));
+		String locationName = userAttributes.get("locationName");
+		Location locale = lDAO.getLocation(locationName);
 		
-		return new User(userName,level,currentPoints,new Location(locationID));
+		return new User(userName,level,currentPoints,locale);
 	}
 	
 	@SuppressWarnings("static-access")
@@ -49,7 +52,7 @@ public class UserDAO {
 		sdb.createItem("Users", username);
 		sdb.createAttributeForItem("Users", username, "level", "" + user.getLevel());
 		sdb.createAttributeForItem("Users", username, "currentPoints", "" + user.getCurrentPoints());
-		sdb.createAttributeForItem("Users", username, "locationID", "" + user.getCurrentLocation().getLocationID());
+		sdb.createAttributeForItem("Users", username, "locationName", "" + user.getCurrentLocation().getLocationName());
 	}
 	
 	@SuppressWarnings("static-access")
@@ -63,7 +66,7 @@ public class UserDAO {
 		map.put("username", user.getUsername());
 		map.put("level", "" + user.getLevel());
 		map.put("currentPoints", "" + user.getCurrentPoints());
-		map.put("locationID", "" + user.getCurrentLocation().getLocationID());
+		map.put("locationName", "" + user.getCurrentLocation().getLocationName());
 		return map;
 	}
 }
